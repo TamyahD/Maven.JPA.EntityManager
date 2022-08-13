@@ -24,7 +24,7 @@ public class EmployeeTitle {
     private Date endDate;
     @ManyToOne
     @JoinColumn(name = "emp_Id", referencedColumnName = "emp_Id", nullable = false)
-    private Employee employeeByEmpId;
+    private Employee<T> employeeByEmpId;
 
     public String getEmpId() {
         return empId;
@@ -71,11 +71,11 @@ public class EmployeeTitle {
         return Objects.hash(empId, title, startDate, endDate);
     }
 
-    public Employee getEmployeeByEmpId() {
+    public Employee<T> getEmployeeByEmpId() {
         return employeeByEmpId;
     }
 
-    public void setEmployeeByEmpId(Employee employeeByEmpId) {
+    public void setEmployeeByEmpId(Employee<T> employeeByEmpId) {
         this.employeeByEmpId = employeeByEmpId;
     }
 }
