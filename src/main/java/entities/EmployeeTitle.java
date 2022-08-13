@@ -2,16 +2,11 @@ package entities;
 
 import javax.persistence.*;
 import java.sql.Date;
-import java.util.List;
 import java.util.Objects;
 
 @Entity
-@Table(name = "EmployeeTitle", schema = "nuuCompany", catalog = "")
-@IdClass(EmployeeTitleEntityPK.class)
-public class EmployeeTitleEntity {
-    @ManyToOne
-    private EmployeeEntity employee;
-
+@IdClass(EmployeeTitlePK.class)
+public class EmployeeTitle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "emp_Id")
@@ -27,6 +22,9 @@ public class EmployeeTitleEntity {
     @Basic
     @Column(name = "end_Date")
     private Date endDate;
+    @ManyToOne
+    @JoinColumn(name = "emp_Id", referencedColumnName = "emp_Id", nullable = false)
+    private Employee employeeByEmpId;
 
     public String getEmpId() {
         return empId;
@@ -64,7 +62,7 @@ public class EmployeeTitleEntity {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        EmployeeTitleEntity that = (EmployeeTitleEntity) o;
+        EmployeeTitle that = (EmployeeTitle) o;
         return Objects.equals(empId, that.empId) && Objects.equals(title, that.title) && Objects.equals(startDate, that.startDate) && Objects.equals(endDate, that.endDate);
     }
 
@@ -73,9 +71,11 @@ public class EmployeeTitleEntity {
         return Objects.hash(empId, title, startDate, endDate);
     }
 
-//    @ManyToOne
-//    @JoinColumn(name = "emp_Id", referencedColumnName = "emp_Id")
-//    public EmployeeEntity getEmployeesByTitle() {
-//        return getEmployeesByTitle();
-//    }
+    public Employee getEmployeeByEmpId() {
+        return employeeByEmpId;
+    }
+
+    public void setEmployeeByEmpId(Employee employeeByEmpId) {
+        this.employeeByEmpId = employeeByEmpId;
+    }
 }

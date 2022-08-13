@@ -8,7 +8,7 @@ import java.io.Serializable;
 import java.sql.Date;
 import java.util.Objects;
 
-public class EmployeeTitleEntityPK implements Serializable {
+public class EmployeeTitlePK implements Serializable {
     @Column(name = "emp_Id")
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -50,7 +50,7 @@ public class EmployeeTitleEntityPK implements Serializable {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        EmployeeTitleEntityPK that = (EmployeeTitleEntityPK) o;
+        EmployeeTitlePK that = (EmployeeTitlePK) o;
         return Objects.equals(empId, that.empId) && Objects.equals(title, that.title) && Objects.equals(startDate, that.startDate);
     }
 

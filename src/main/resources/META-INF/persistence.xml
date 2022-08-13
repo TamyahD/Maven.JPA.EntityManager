@@ -7,8 +7,9 @@
         version="2.1">
     <persistence-unit name="jpaentity" transaction-type="RESOURCE_LOCAL">
         <provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-        <class>entities.EmployeeEntity</class>
-        <class>entities.EmployeeTitleEntity</class>
+        <class>entities.Employee</class>
+        <class>entities.EmployeeTitle</class>
+        <class>entities.EmployeesNTitles</class>
         <properties>
             <property name="hibernate.connection.url" value="jdbc:mysql://localhost/nuuCompany"/>
             <property name="hibernate.connection.driver_class" value="com.mysql.cj.jdbc.Driver"/>
