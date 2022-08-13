@@ -42,11 +42,11 @@ public class Operations {
         }
     }
 
-    public void findAll(String id) {
+    public void findAll() {
         EntityManager entMan = ENTITY_MANAGER_FACTORY.createEntityManager();
-        String query = "SELECT e FROM Employee e WHERE e.id=:empId";
+        String query = "SELECT e FROM Employee e WHERE e.id IS NOT NULL";
 
         TypedQuery<Employee> typedQuery = entMan.createQuery(query, Employee.class);
-        typedQuery.setParameter("empID", id);
+        typedQuery.setParameter(typedQuery, );
     }
 }
