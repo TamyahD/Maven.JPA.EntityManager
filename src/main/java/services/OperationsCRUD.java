@@ -1,15 +1,19 @@
 package services;
 
+import entities.Employee;
+
 import java.util.List;
 
-public interface OperationsCRUD<Table> {
-    List<Table> entityList();
+public interface OperationsCRUD<T>{
+    List<T> entityList();
 
-    Table findAll();
+    List<T> findAll(String type);
 
-    Table findOne(String id);
+//    Employee findAll(String table);
 
-    String add(Table entityType);
+    T findOne(String id);
+
+    String add(T entityType);
 
     String delete(String id);
 }

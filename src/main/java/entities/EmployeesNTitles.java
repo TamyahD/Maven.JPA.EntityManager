@@ -3,10 +3,12 @@ package entities;
 import javax.persistence.Basic;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.Id;
 import java.util.Objects;
 
 @Entity
 public class EmployeesNTitles {
+    @Id
     @Basic
     @Column(name = "emp_Id")
     private String empId;
@@ -19,6 +21,8 @@ public class EmployeesNTitles {
     @Basic
     @Column(name = "title")
     private String title;
+//    @Id
+//    private Long id;
 
     public String getEmpId() {
         return empId;
@@ -64,4 +68,12 @@ public class EmployeesNTitles {
     public int hashCode() {
         return Objects.hash(empId, firstName, lastName, title);
     }
+
+//    public void setId(String id) {
+//        this.id = id;
+//    }
+//
+//    public Long getId() {
+//        return id;
+//    }
 }

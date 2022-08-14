@@ -6,7 +6,7 @@ import java.util.Collection;
 import java.util.Objects;
 
 @Entity
-public class Employee<T> {
+public class Employee {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Id
     @Column(name = "emp_Id")
@@ -59,7 +59,7 @@ public class Employee<T> {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        Employee<T> employee = (Employee<T>) o;
+        Employee employee = (Employee) o;
         return Objects.equals(empId, employee.empId) && Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName) && Objects.equals(hireDate, employee.hireDate);
     }
 
