@@ -11,7 +11,7 @@ public interface OperationsCRUD<T>{
 
 //    Employee findAll(String table);
 
-    T findOne(String id);
+    T findOne(String id, String tableType);
 
     String add(T entityType);
 
